@@ -14,7 +14,7 @@ const MyControlComponent = ({ onDateChange, selectedDate }) => {
   const map = useMap();
   const [date, setDate] = useState(new Date());
   const [showCalendar, setShowCalendar] = useState(true);
-  console.log("newDate", date);
+  //console.log("newDate", date);
   const maxDate = new Date();
   maxDate.setHours(0, 0, 0, 0);
   
@@ -32,7 +32,7 @@ const MyControlComponent = ({ onDateChange, selectedDate }) => {
   const handleDateChange = (newDate) => {
     setDate(newDate);
     onDateChange(newDate); 
-    console.log('Selected date:', newDate);
+    //console.log('Selected date:', newDate);
   };
   const toggleCalendar = () => {
     setShowCalendar(!showCalendar);
@@ -80,7 +80,7 @@ function App() {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [center, setCenter] = useState([0,0]);
   const [loading, setLoading]= useState(false);
-  console.log(loading);
+  //console.log(loading);
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -88,7 +88,7 @@ function App() {
         const response = await axios.get('https://backendforpnf.vercel.app/getgps');
         const data = response.data.data;
         const lastFiveRecords = data.slice(-5);
-        console.log(lastFiveRecords)
+        //console.log(lastFiveRecords)
         
         // Filter data based on selected date
         const filteredData = data.filter(item => {
@@ -143,13 +143,15 @@ function App() {
       case 'abdul shaikh':
         return 'purple';
       case 'test test':
-        return 'orange';
+        return 'violet'
       case 'pratibha finance':
         return 'orange';
       case 'sohail shaikh':
         return 'yellow';
       case 'shingshetty shingshetty':
         return 'black';
+      case 'salim shaikh':
+        return 'gold'
       default:
         return 'gray'; // Default color for unknown usernames
     }
